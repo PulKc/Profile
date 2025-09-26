@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pulkit Sahu — VenusMoon · AI Training & RLHF</title>
+  <meta name="description" content="Pulkit Sahu — Founder at VenusMoon. RLHF/SFT, RamAI, Rambo, Moon — AI training projects with US clients." />
+  <!-- Social preview -->
+  <meta property="og:title" content="Pulkit Sahu — VenusMoon" />
+  <meta property="og:description" content="RLHF/SFT, RamAI, Rambo, Moon — AI training projects with top US clients." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN (no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html,body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    .site-max { max-width: 1100px; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body class="bg-white text-slate-800 selection:bg-indigo-300 selection:text-slate-900">
+  <header class="site-max px-6 py-6 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">VM</div>
+      <div>
+        <h1 class="text-xl font-semibold">Pulkit Sahu</h1>
+        <p class="text-sm text-slate-600">Founder @ VenusMoon — RLHF / SFT · RamAI · Rambo · Moon</p>
+      </div>
+    </a>
+
+    <nav class="flex items-center gap-4 text-sm">
+      <a href="#projects" class="hover:underline">Projects</a>
+      <a href="#posts" class="hover:underline">Posts</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+      <button id="themeBtn" aria-label="Toggle theme" class="p-2 rounded-md bg-slate-100 hover:bg-slate-200">🌓</button>
+    </nav>
+  </header>
+
+  <main class="site-max px-6 pb-20">
+    <!-- HERO -->
+    <section class="grid md:grid-cols-2 gap-8 items-center py-8">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold leading-tight">AI Trainer & Founder — building aligned systems with human feedback</h2>
+        <p class="mt-4 text-lg text-slate-600">I lead AI training projects (RLHF/SFT) and research at VenusMoon. Active projects: RamAI, Rambo, Moon. Working with top US clients.</p>
+        <div class="mt-6 flex gap-3">
+          <a class="inline-block px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm" href="mailto:p.sahu89@gmail.com">Message (email)</a>
+          <a class="inline-block px-4 py-2 border border-slate-200 rounded-md" href="https://x.com/PulkitSahu89" target="_blank" rel="noopener">Follow on X</a>
+        </div>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <div class="w-56 h-56 rounded-2xl bg-gradient-to-tr from-indigo-50 to-pink-50 p-6 flex flex-col justify-between">
+          <div class="text-slate-700 font-semibold">VenusMoon</div>
+          <div class="text-sm text-slate-500">AI education & applied ML lab</div>
+          <img alt="placeholder avatar" src="https://images.unsplash.com/photo-1531123414780-f0d7f3a6d0a2?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" class="rounded-lg shadow mt-4 object-cover w-full h-40" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="mt-10">
+      <h3 class="text-2xl font-bold">Selected projects</h3>
+      <p class="text-slate-600 mt-2">Focused signal: AI training — RLHF/SFT, dataset pipelines, and model alignment.</p>
+
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="p-4 border rounded-lg bg-white shadow-sm">
+          <h4 class="font-semibold">VenusMoon</h4>
+          <p class="text-sm text-slate-600 mt-2">Education + lab for applied AI projects and training pipelines.</p>
+        </article>
+        <article class="p-4 border rounded-lg bg-white shadow-sm">
+          <h4 class="font-semibold">RamAI</h4>
+          <p class="text-sm text-slate-600 mt-2">Human feedback alignment and RLHF experiments.</p>
+        </article>
+        <article class="p-4 border rounded-lg bg-white shadow-sm">
+          <h4 class="font-semibold">Rambo</h4>
+          <p class="text-sm text-slate-600 mt-2">Scalable data pipelines and annotation workflows for SFT.</p>
+        </article>
+        <article class="p-4 border rounded-lg bg-white shadow-sm">
+          <h4 class="font-semibold">Moon</h4>
+          <p class="text-sm text-slate-600 mt-2">Quick prototyping for RLHF agents and evaluation suites.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- POSTS (dynamic cards) -->
+    <section id="posts" class="mt-12">
+      <div class="flex items-center justify-between">
+        <h3 class="text-2xl font-bold">Latest posts & links</h3>
+        <p class="text-sm text-slate-500">Click to open</p>
+      </div>
+
+      <div id="postsGrid" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- JS will populate cards here from `posts` array -->
+      </div>
+
+      <p class="text-xs text-slate-500 mt-3">Tip: Edit the `posts` array in the source to add/remove posts or include thumbnails.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="mt-12 pb-12">
+      <h3 class="text-2xl font-bold">Contact</h3>
+      <p class="text-slate-600 mt-2">For collaborations, freelance RLHF/SFT work, or client inquiries — email me or message on X.</p>
+
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <a class="px-4 py-2 bg-indigo-600 text-white rounded-md" href="mailto:p.sahu89@gmail.com">Email: p.sahu89@gmail.com</a>
+        <a class="px-4 py-2 border rounded-md" href="https://x.com/PulkitSahu89" target="_blank" rel="noopener">X / Twitter</a>
+        <a class="px-4 py-2 border rounded-md" href="https://www.venusmoon.in/profile/pulkitsahu/profile" target="_blank" rel="noopener">Profile page</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t">
+    <div class="site-max px-6 py-6 flex justify-between items-center text-sm text-slate-500">
+      <div>© <span id="year"></span> Pulkit Sahu — VenusMoon</div>
+      <div>Built with ♥ · <a href="https://github.com/yourusername/yourusername.github.io" class="hover:underline">source</a></div>
+    </div>
+  </footer>
+
+  <!-- Script: posts, DOM rendering, theme toggle -->
+  <script>
+    // Replace or extend this array to add/remove posts.
+    const posts = [
+      {
+        title: "AI Agents — A guide to understand and build them",
+        url: "https://www.venusmoon.in/post/ai-agents-a-guide-to-understand-and-build-them",
+        source: "VenusMoon",
+        excerpt: "Guide to building AI agents — architecture, workflows, and examples."
+      },
+      {
+        title: "PulkitSahu89 (X)",
+        url: "https://x.com/PulkitSahu89",
+        source: "X",
+        excerpt: "Follow me for quick updates and project notes."
+      },
+      {
+        title: "Profile — Pulkit Sahu",
+        url: "https://www.venusmoon.in/profile/pulkitsahu/profile",
+        source: "VenusMoon",
+        excerpt: "Short bio and contact details."
+      }
+    ];
+
+    const container = document.getElementById('postsGrid');
+    posts.forEach(p => {
+      const card = document.createElement('a');
+      card.href = p.url;
+      card.target = "_blank";
+      card.rel = "noopener";
+      card.className = "block p-4 border rounded-lg hover:shadow-lg transition-shadow bg-white";
+      card.innerHTML = `
+        <div class="flex items-start gap-3">
+          <div class="flex-shrink-0 w-12 h-12 rounded-md bg-indigo-50 flex items-center justify-center text-indigo-600 font-semibold text-sm">${p.source[0] || 'V'}</div>
+          <div>
+            <h4 class="font-semibold">${escapeHtml(p.title)}</h4>
+            <p class="text-sm text-slate-600 mt-1">${escapeHtml(p.excerpt)}</p>
+            <div class="text-xs text-slate-400 mt-2">${p.source}</div>
+          </div>
+        </div>`;
+      container.appendChild(card);
+    });
+
+    // small helper to avoid raw HTML injection
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"'`=\/]/g, function (s) {
+        return ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;', '`': '&#x60;', '=': '&#x3D;'
+        })[s];
+      });
+    }
+
+    // footer year
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // theme toggle (light/dark)
+    const themeBtn = document.getElementById('themeBtn');
+    const root = document.documentElement;
+    const preferred = localStorage.getItem('vm_theme') || 'light';
+    setTheme(preferred);
+
+    themeBtn.addEventListener('click', () => {
+      const next = root.classList.contains('dark') ? 'light' : 'dark';
+      setTheme(next);
+      localStorage.setItem('vm_theme', next);
+    });
+
+    function setTheme(t) {
+      if (t === 'dark') {
+        root.classList.add('dark');
+        document.body.classList.add('bg-slate-900', 'text-slate-100');
+      } else {
+        root.classList.remove('dark');
+        document.body.classList.remove('bg-slate-900', 'text-slate-100');
+      }
+    }
+  </script>
+</body>
+</html>
