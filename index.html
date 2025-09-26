@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pulkit Sahu — VenusMoon · AI Training & RLHF</title>
-  <meta name="description" content="Pulkit Sahu — Founder at VenusMoon. RLHF/SFT, RamAI, Rambo, Moon — AI training projects with top US STEM clients." />
+  <meta name="description" content="Pulkit Sahu — Founder at VenusMoon (RamAI, Rambo, Moon). RLHF/SFT — AI training projects with top US STEM clients." />
 
   <!-- Social preview -->
   <meta property="og:title" content="Pulkit Sahu — VenusMoon" />
-  <meta property="og:description" content="RLHF/SFT, RamAI, Rambo, Moon — AI training projects with top US STEM clients." />
+  <meta property="og:description" content="RLHF/SFT, RamAI, Rambo, Moon | AI training projects with top US STEM clients." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -40,18 +40,31 @@
       background: linear-gradient(135deg,#6366F1,#EC4899);
       box-shadow: 0 6px 18px rgba(99,102,241,0.12);
     }
-    /* preview image sizing in cards */
-    .card-thumb {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 8px;
+
+    /* Gradient card styles we control */
+    .grad-card {
+      border-radius: 12px;
+      padding: 18px;
+      color: white;
+      display: block;
+      text-decoration: none;
+      transition: transform .16s ease, box-shadow .16s ease;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+      min-height: 110px;
+    }
+    .grad-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.12); }
+    .grad-title { font-weight: 700; letter-spacing: -0.2px; }
+    .grad-host { font-size: 13px; opacity: 0.9; margin-top: 8px; }
+
+    /* Responsive niceties */
+    @media (max-width:640px) {
+      .site-max { padding-left: 16px; padding-right: 16px; }
     }
   </style>
 </head>
 <body class="bg-white text-slate-800 selection:bg-indigo-300 selection:text-slate-900">
   <header class="site-max px-6 py-6 flex items-center justify-between">
-    <a class="brand" href="https://www.linkedin.com/in/pulkitsahu89/" target="_blank" rel="noopener" aria-label="Pulkit Sahu LinkedIn">
+    <a class="brand" href="https://www.linkedin.com/in/pulkitsahu89/" target="_blank" rel="noopener" aria-label="My LinkedIn">
       <div class="brand-mark">PS</div>
       <div>
         <div style="font-size:18px">Pulkit</div>
@@ -120,18 +133,20 @@
       </div>
     </section>
 
-    <!-- POSTS (dynamic cards with metadata fetch) -->
+    <!-- POSTS (gradient cards controlled by us; no external previews) -->
     <section id="posts" class="mt-12">
       <div class="flex items-center justify-between">
         <h3 class="text-2xl font-bold">Latest posts & links</h3>
-        <p class="text-sm text-slate-500">Preview cards fetched from the source pages</p>
+        <p class="text-sm text-slate-500">Preview cards created locally (no external preview fetch)</p>
       </div>
 
       <div id="postsGrid" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- JS will populate cards here from `posts` array -->
+        <!-- JS will populate gradient cards here -->
       </div>
 
-      <p class="text-xs text-slate-500 mt-3">Tip: If preview images fail to load, the cards will show a compact fallback. For automatic previews at build-time, consider a small GitHub Action to fetch OG metadata and save it to a JSON file.</p>
+      <p class="text-xs text-slate-500 mt-3">
+        Tip: For automatic build-time metadata, consider a GitHub Action that generates a small `data/posts.json`. I can provide that if you'd like.
+      </p>
     </section>
 
     <!-- CONTACT -->
@@ -150,23 +165,66 @@
   <footer class="border-t">
     <div class="site-max px-6 py-6 flex justify-between items-center text-sm text-slate-500">
       <div>© <span id="year"></span> Pulkit Sahu — VenusMoon</div>
-      <div>Built with ♥ · <a href="https://github.com/yourusername/yourusername.github.io" class="hover:underline">source</a></div>
+      <div>Built with ♥ · <a href="https://github.com/PulKc" class="hover:underline">source</a></div>
     </div>
   </footer>
 
-  <!-- Script: posts, metadata fetcher (proxy fallback), DOM rendering, theme toggle -->
+  <!-- Script: gradient posts, DOM rendering, theme toggle -->
   <script>
-    // Posts you provided (the script will attempt to fetch OG metadata for each)
+    // Posts list you provided — we will show them as gradient cards (no external preview)
     const posts = [
-      "https://www.venusmoon.in/post/ai-agents-a-guide-to-understand-and-build-them",
-      "https://www.venusmoon.in/post/tokenisation-breaking-documents-and-files-into-words-or-sub-words",
-      "https://www.linkedin.com/feed/update/urn:li:activity:7256537929089486848/",
-      "https://www.linkedin.com/feed/update/urn:li:activity:7254027008471425024/"
+      {
+        url: "https://www.venusmoon.in/post/ai-agents-a-guide-to-understand-and-build-them",
+        title: "AI Agents — A guide to understand and build them",
+        host: "www.venusmoon.in",
+        gradient: "linear-gradient(135deg,#7C3AED 0%,#EC4899 100%)"
+      },
+      {
+        url: "https://www.venusmoon.in/post/tokenisation-breaking-documents-and-files-into-words-or-sub-words",
+        title: "Tokenisation — breaking documents and files into words or sub-words",
+        host: "www.venusmoon.in",
+        gradient: "linear-gradient(135deg,#0EA5E9 0%,#6366F1 100%)"
+      },
+      {
+        url: "https://www.linkedin.com/feed/update/urn:li:activity:7256537929089486848/",
+        title: "LinkedIn Post on ML",
+        host: "www.linkedin.com",
+        gradient: "linear-gradient(135deg,#06B6D4 0%,#3B82F6 100%)"
+      },
+      {
+        url: "https://www.linkedin.com/feed/update/urn:li:activity:7254027008471425024/",
+        title: "LinkedIn Post on AI",
+        host: "www.linkedin.com",
+        gradient: "linear-gradient(135deg,#F97316 0%,#EF4444 100%)"
+      }
     ];
 
     const postsGrid = document.getElementById('postsGrid');
 
-    // Utility: safe text escape
+    function buildCard(p) {
+      // create anchor wrapper
+      const a = document.createElement('a');
+      a.href = p.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.className = "grad-card";
+
+      // apply gradient background
+      a.style.background = p.gradient || "linear-gradient(135deg,#6366F1 0%,#EC4899 100%)";
+
+      // accessibility: title attr
+      a.setAttribute('title', p.title);
+
+      // inner content
+      const inner = document.createElement('div');
+      inner.innerHTML = `
+        <div class="grad-title">${escapeHtml(p.title)}</div>
+        <div class="grad-host">${escapeHtml(p.host)}</div>
+      `;
+      a.appendChild(inner);
+      return a;
+    }
+
     function escapeHtml(str) {
       return String(str || '').replace(/[&<>"'`=\/]/g, function (s) {
         return ({
@@ -175,88 +233,10 @@
       });
     }
 
-    // Attempt to fetch metadata using a proxy. First try r.jina.ai proxy which returns proxied HTML.
-    // If that fails, fallback to a minimal card with the URL as title.
-    async function fetchMeta(url) {
-      const proxy = 'https://r.jina.ai/http://'; // note: public proxy; reliability may vary
-      try {
-        const resp = await fetch(proxy + url);
-        if (!resp.ok) throw new Error('Proxy fetch failed');
-        const text = await resp.text();
-
-        // find og:title, og:description, og:image via regex
-        const ogTitle = (text.match(/<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i) || [])[1]
-          || (text.match(/<title[^>]*>([^<]+)<\/title>/i) || [])[1] || '';
-        const ogDesc = (text.match(/<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i) || [])[1]
-          || (text.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i) || [])[1] || '';
-        const ogImage = (text.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i) || [])[1] || '';
-
-        return { title: ogTitle.trim(), description: ogDesc.trim(), image: ogImage.trim() };
-      } catch (e) {
-        // fallback attempt: use an alternate public text-fetch proxy (if available)
-        try {
-          const altProxy = 'https://r.jina.ai/http://'; // same as above for now
-          const alt = await fetch(altProxy + url);
-          if (alt.ok) {
-            const t = await alt.text();
-            const title = (t.match(/<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i) || [])[1]
-              || (t.match(/<title[^>]*>([^<]+)<\/title>/i) || [])[1] || '';
-            const desc = (t.match(/<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i) || [])[1]
-              || (t.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i) || [])[1] || '';
-            const image = (t.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i) || [])[1] || '';
-            return { title: title.trim(), description: desc.trim(), image: image.trim() };
-          }
-        } catch (e2) {
-          // ignore
-        }
-
-        // final fallback
-        return { title: '', description: '', image: '' };
-      }
-    }
-
-    // Render each post card. We fetch metadata, then build card. For LinkedIn, proxy may strip due to LinkedIn restrictions.
-    (async function renderPosts() {
-      for (const url of posts) {
-        // placeholder card while loading
-        const loadingCard = document.createElement('div');
-        loadingCard.className = "p-4 border rounded-lg bg-white shadow-sm";
-        loadingCard.innerHTML = `<div class="animate-pulse h-24"></div>`;
-        postsGrid.appendChild(loadingCard);
-
-        const meta = await fetchMeta(url);
-        // remove loading placeholder
-        postsGrid.removeChild(loadingCard);
-
-        // build card
-        const link = document.createElement('a');
-        link.href = url;
-        link.target = "_blank";
-        link.rel = "noopener";
-        link.className = "block p-4 border rounded-lg hover:shadow-lg transition-shadow bg-white";
-
-        // If an image is available, include it
-        let thumbHtml = '';
-        if (meta.image) {
-          // ensure absolute URL
-          const imgUrl = meta.image.startsWith('http') ? meta.image : meta.image;
-          thumbHtml = `<img alt="${escapeHtml(meta.title)}" class="card-thumb mb-3" src="${escapeHtml(imgUrl)}" loading="lazy" onerror="this.style.display='none'">`;
-        }
-
-        const title = meta.title || url;
-        const desc = meta.description || '';
-
-        link.innerHTML = `
-          ${thumbHtml}
-          <div>
-            <h4 class="font-semibold">${escapeHtml(title)}</h4>
-            <p class="text-sm text-slate-600 mt-1">${escapeHtml(desc)}</p>
-            <div class="text-xs text-slate-400 mt-2">${escapeHtml((new URL(url)).hostname)}</div>
-          </div>
-        `;
-        postsGrid.appendChild(link);
-      }
-    })();
+    // render cards (in the order you provided)
+    posts.forEach(p => {
+      postsGrid.appendChild(buildCard(p));
+    });
 
     // footer year
     document.getElementById('year').innerText = new Date().getFullYear();
